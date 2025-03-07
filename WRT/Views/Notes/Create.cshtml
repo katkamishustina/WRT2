@@ -1,0 +1,57 @@
+﻿@model WRT.Models.Notes
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Notes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div style="margin-top:10px; font-size:normal" conclass="form-group" contenteditable="true" class="editor" id="editor">
+                <label asp-for="Text" class="control-label"></label>
+                <textarea class="editarea" asp-for="Text" 
+                    class="form-control createViewInputField" 
+                    style="height:200px;margin:5px; width:50vw" 
+                    placeholder="Place for your note." 
+                    rows="14" 
+                    cols="10" 
+                    wrap="soft"></textarea>
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="padding:5px;">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+		<div class="actions" data-for="textarea">
+			<button data-el="b" style="font-weight:bold;" class="btn">Bold</button>
+            <button data-el="i" style="text-decoration:underline;" class="btn">Italic</button>
+			<button style="color:yellow;" class="btn" onclick="highlightText('yellow')">Yellow</button>
+			<button style="color:orangered;" class="btn" onclick="highlightText('red')">Red</button>
+			<button style="color:lightgreen;" class="btn" onclick="highlightText('green')">Green</button>
+		</div>
+        
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
