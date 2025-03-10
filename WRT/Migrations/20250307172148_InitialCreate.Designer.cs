@@ -11,8 +11,8 @@ using WRT.Data;
 namespace WRT.Migrations
 {
     [DbContext(typeof(WRTContext))]
-    [Migration("20250306141604_Text")]
-    partial class Text
+    [Migration("20250307172148_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

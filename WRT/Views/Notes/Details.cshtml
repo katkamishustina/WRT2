@@ -26,15 +26,8 @@
             @Html.DisplayNameFor(model => model.Text)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Text)
-            @{
-                var textFromModel = Model.Text;
-                string tt = "adef1<b>223</b>";
-                
-            }
-                <p>@textFromModel</p>
-                <p>@tt</p>
-        </dd>
+            @Html.Raw(@Model.Text.ToString())
+       </dd>
     </dl>
 </div>
 <div>

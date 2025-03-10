@@ -2,13 +2,6 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function formatText(command) {
-    document.execCommand(command, false, null);
-}
-
-function highlightText(color) {
-    document.execCommand('backColor', false, color);
-}
 
 function makeTextBolder() {
     const selectedText = window.getSelection();
