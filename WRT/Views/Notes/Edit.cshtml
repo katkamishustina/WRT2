@@ -23,12 +23,31 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+
+            
                 <label asp-for="Text" class="control-label"></label>
-                <input asp-for="Text" class="form-control" />
+                <div contenteditable="true"
+                     class="editor"
+                     style="height:200px; width:40vw; border:1px,solid,black;"
+                     rows="14"
+                     cols="10"
+                     wrap="soft"
+                 id="divInput">
+                @Html.Raw(Model.Text.ToString());
+                </div>
+                <input asp-for="Text" type="hidden" id="hiddenInput" value="" />
+                <div class="actions" data-for="textarea">
+                    <button type="button" style="font-weight:bold;" class="btn" onclick="formatText('bold')">Bold</button>
+                    <button type="button" style="text-decoration:underline;" class="btn" onclick="formatText('italic')">Italic</button>
+                    <button type="button" style="color:yellow;" class="btn" onclick="highlightText('yellow')">Yellow</button>
+                    <button type="button" style="color:orangered;" class="btn" onclick="highlightText('orangered')">Red</button>
+                    <button type="button" style="color:lightgreen;" class="btn" onclick="highlightText('lightgreen')">Green</button>
+                </div>
                 <span asp-validation-for="Text" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+  
+            <div class="form-group" style="padding:5px;">
+                <button type="button" class="btn btn-outline-primary" onclick="fromDivToInput()">Save text</button>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
